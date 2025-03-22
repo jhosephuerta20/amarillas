@@ -1,0 +1,152 @@
+/* Agregar imagen de fondo */
+body {
+    position: relative;
+    /* Necesario para el pseudo-elemento */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('foto.png');
+    /* Cambia esto con la ruta correcta */
+    background-size: cover;
+    /* Hace que la imagen cubra todo el fondo */
+    background-position: center;
+    /* Centra la imagen */
+    background-repeat: no-repeat;
+    /* Evita que la imagen se repita */
+}
+
+/* Pseudo-elemento para la superposición */
+body::before {
+    content: '';
+    /* Necesario para que el pseudo-elemento aparezca */
+    position: absolute;
+    /* Posiciones relativas al body */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(25, 25, 25, 0.6);
+    /* Color blanco con opacidad */
+    /* Cambia a rgba(255, 255, 255, 0.6) para un fondo más claro */
+    opacity: 0;
+    /* Comienza invisible */
+    animation: fadeInOverlay 1s forwards;
+    /* Animación de entrada */
+}
+
+/* Animación para la superposición */
+@keyframes fadeInOverlay {
+    from {
+        opacity: 0;
+        /* Comienza desde invisible */
+    }
+
+    to {
+        opacity: 1;
+        /* Termina visible */
+    }
+}
+
+/* Contenedor principal para el contenido */
+.container {
+    position: relative;
+    /* Permite que el texto esté sobre el pseudo-elemento */
+    text-align: center;
+}
+
+/* Contenedor de flores, utilizando Flexbox para disposición de elementos */
+.flower-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Estilos básicos para cada flor */
+.flower {
+    width: 200px;
+    height: 200px;
+    margin: 10px;
+    position: relative;
+}
+
+/* Estilos para los pétalos de las flores */
+.petal {
+    width: 45px;
+    height: 90px;
+    background-color: #FFD700;
+    /* Color amarillo */
+    border-radius: 50%;
+    /* Bordes redondeados */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: 0 100%;
+    /* Punto de rotación */
+    animation: fadeInPetal 0.5s ease-in-out both;
+    /* Animación de aparición */
+}
+
+/* Clases para cada pétalo, con diferentes rotaciones */
+.p1 {
+    transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.p2 {
+    transform: translate(-50%, -50%) rotate(36deg);
+}
+
+.p3 {
+    transform: translate(-50%, -50%) rotate(72deg);
+}
+
+.p4 {
+    transform: translate(-50%, -50%) rotate(108deg);
+}
+
+.p5 {
+    transform: translate(-50%, -50%) rotate(144deg);
+}
+
+.p6 {
+    transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.p7 {
+    transform: translate(-50%, -50%) rotate(216deg);
+}
+
+.p8 {
+    transform: translate(-50%, -50%) rotate(252deg);
+}
+
+.p9 {
+    transform: translate(-50%, -50%) rotate(288deg);
+}
+
+.p10 {
+    transform: translate(-50%, -50%) rotate(324deg);
+}
+
+/* Animaciones para los pétalos */
+@keyframes fadeInPetal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutPetal {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
